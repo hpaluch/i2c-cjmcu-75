@@ -13,7 +13,7 @@ with [I2C LM75A Digital Temperature Sensor][LM75A].
 
 Here is reverse engineered schematic (drawn in [Express SCH][Express SCH]) of CJMCU-75 with LM75A address set to `0`:
 
-![CJMCU-75 Schematic](https://github.com/hpaluch/i2c-cjmcu-75/blob/master/assetsassets/ExpressPCB/cjmcu-75.png?raw=true) 
+![CJMCU-75 Schematic](https://github.com/hpaluch/i2c-cjmcu-75/blob/master/assets/ExpressPCB/cjmcu-75.png?raw=true) 
 
 > NOTE:
 >
