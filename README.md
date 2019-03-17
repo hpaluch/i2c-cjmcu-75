@@ -3,9 +3,20 @@
 Here is sample project how to use [CJMCU-75 board][CJMCU-75]
 with [I2C LM75A Digital Temperature Sensor][LM75A].
 
-> WARNING!
->
-> Work in progress.
+Project status:
+
+* Now can read temperature
+  using: [LC CH341A USB Adapter][Connecting LC CH341A USB Adapter to I2C Digital Temperature sensor LM75A] - project in VS2010.
+
+Example output:
+
+```
+CH341 library version: 33
+Opening device# 0
+CH341 driver  version: 34
+tempRaw is 6880 (0x1ae0)
+Temp is 26 degrees of Celsius
+```
 
 ![CJMCU-75 Top](https://github.com/hpaluch/i2c-cjmcu-75/blob/master/assets/cjmcu-75-top.jpg?raw=true) 
 
@@ -34,6 +45,9 @@ I set device address to `0` soldering these pins (see above picture):
 
 After soldering all three pins - `A0`, `A1` and `A2` to one of `GND`
 or `VCC` the board is ready for use.
+
+[Connecting LC CH341A USB Adapter to I2C Digital Temperature sensor LM75A]: https://github.com/hpaluch/i2c-cjmcu-75/tree/master/ch341-i2c-lm75a
+
 
 [Express SCH]: https://www.expresspcb.com/expresspcb/
 [SMD resistor code calculator]: https://www.hobby-hour.com/electronics/smdcalc.php
