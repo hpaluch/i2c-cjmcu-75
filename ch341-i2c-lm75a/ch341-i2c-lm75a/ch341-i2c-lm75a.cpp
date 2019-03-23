@@ -3,6 +3,8 @@
 //
 
 #include "stdafx.h"
+// our local libraries
+#include "hplm75.h"
 
 // standard I2C Speed (100kHz)
 #define HPCH_MODE_I2C_SPEED_STD 0x01
@@ -15,6 +17,8 @@
 // LM75 Pointer set to TEMP(erature)
 #define HPCH_LM75A_POINTER_TEMP 0
 
+#define HPCH_LM75A_TEMP_UNUSED_BITS 0x7f
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int    i    = 0;
@@ -22,7 +26,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	HANDLE h341 = NULL;
 	ULONG iIndex = 0; // first device
 	BYTE  i2cAddr = 0; 
-	INT16   tempRaw = 0;
+	int16_t   tempRaw = 0;
 
 	// write to I2C LM75A - set pointer register to TEMPerature
 	BYTE  tempWrite[2] = { HPCH_LM75A_ADDR_UPPER | (i2cAddr << 1), HPCH_LM75A_POINTER_TEMP };
@@ -52,11 +56,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		goto exit1;
 	}
 
-	tempRaw = tempRead[1] | (tempRead[0] << 8);
+	tempRaw = (tempRead[1] & ~HPCH_LM75A_TEMP_UNUSED_BITS) | (tempRead[0] << 8);
 	printf("tempRaw is %hd (0x%hx)\n",tempRaw,tempRaw);
 
 	// TODO: Do not loose 0.5 precision...
-	printf("Temp is %hd degrees of Celsius\n", (tempRaw >> 8));
+	printf("Temp is %hd degrees of Celsius\n", HpLm75_RawTempToInt(tempRaw));
 
 	ret = EXIT_SUCCESS;
 exit1:

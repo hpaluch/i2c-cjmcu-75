@@ -24,7 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hplm75.h">
+    <ClInclude Include="greatest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,10 +32,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ch341-i2c-lm75a.cpp">
+    <ClCompile Include="hplm75-tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hplm75.cpp">
+    <ClCompile Include="..\ch341-i2c-lm75a\hplm75.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
