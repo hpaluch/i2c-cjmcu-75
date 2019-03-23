@@ -34,10 +34,33 @@ TEST test_HpLm75_RawTempToInt(void) {
 
 } 
 
+TEST test_HpLm75_HpLm75_RawTempToStr(void) {
+	char str[16];
+	HpLm75_RawTempToStr( (int16_t) (0x7f), str, sizeof(str) ); // 0.5
+	ASSERT_STR_EQ("0.0",str);
+	HpLm75_RawTempToStr( (int16_t) (1 << 7), str, sizeof(str) ); // 0.5
+	ASSERT_STR_EQ("0.5",str);
+	HpLm75_RawTempToStr( (int16_t) (2 << 7), str, sizeof(str) ); // 1.0
+	ASSERT_STR_EQ("1.0",str);
+	HpLm75_RawTempToStr( (int16_t) (3 << 7), str, sizeof(str) ); // 1.5
+	ASSERT_STR_EQ("1.5",str);
+	HpLm75_RawTempToStr( (int16_t) (-1 << 7), str, sizeof(str) ); // -0.5
+	ASSERT_STR_EQ("-0.5",str);
+	HpLm75_RawTempToStr( (int16_t) (-2 << 7), str, sizeof(str) ); // -1.0
+	ASSERT_STR_EQ("-1.0",str);
+	HpLm75_RawTempToStr( (int16_t) (-3 << 7), str, sizeof(str) ); // -1.5
+	ASSERT_STR_EQ("-1.5",str);
+	HpLm75_RawTempToStr( (int16_t) (-4 << 7), str, sizeof(str) ); // -2.0
+	ASSERT_STR_EQ("-2.0",str);
+
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	GREATEST_MAIN_BEGIN();
     RUN_TEST(test_HpLm75_RawTempToInt);
-    GREATEST_MAIN_END();        /* display results */ 
+    RUN_TEST(test_HpLm75_HpLm75_RawTempToStr);
+	GREATEST_MAIN_END();        /* display results */ 
 }
 

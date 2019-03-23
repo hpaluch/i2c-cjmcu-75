@@ -31,8 +31,9 @@ Example program output:
 CH341 library version: 33
 Opening device# 0
 CH341 driver  version: 34
-tempRaw is 6880 (0x1ae0)
-Temp is 26 degrees of Celsius
+tempRaw is 6912 (0x1b00)
+Int Temp is 27 degrees of Celsius
+Temp is 27.0 degrees of Celsius
 ```
 
 [Using I2C board CJMCU-75 with LM75A]:  https://github.com/hpaluch/i2c-cjmcu-75

@@ -32,6 +32,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	BYTE  tempWrite[2] = { HPCH_LM75A_ADDR_UPPER | (i2cAddr << 1), HPCH_LM75A_POINTER_TEMP };
 	// read I2C from LM75A - get back temperature
 	BYTE  tempRead[2]  = { 0, 0 }; // input buffer to read temperature
+	char  strTemp[16];
 
 	printf("CH341 library version: %lu\n", CH341GetVersion());
 
@@ -59,8 +60,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	tempRaw = (tempRead[1] & ~HPCH_LM75A_TEMP_UNUSED_BITS) | (tempRead[0] << 8);
 	printf("tempRaw is %hd (0x%hx)\n",tempRaw,tempRaw);
 
-	// TODO: Do not loose 0.5 precision...
-	printf("Temp is %hd degrees of Celsius\n", HpLm75_RawTempToInt(tempRaw));
+	printf("Int Temp is %hd degrees of Celsius\n", HpLm75_RawTempToInt(tempRaw));
+
+	HpLm75_RawTempToStr(tempRaw,strTemp,sizeof(strTemp));
+	printf("Temp is %s degrees of Celsius\n", strTemp);
 
 	ret = EXIT_SUCCESS;
 exit1:

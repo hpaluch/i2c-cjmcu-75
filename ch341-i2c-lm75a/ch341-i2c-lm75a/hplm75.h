@@ -20,5 +20,9 @@
 //  2.0 => -2
 int HpLm75_RawTempToInt(int16_t rawTemp);
 
+// converts Raw LM75 temperature to string, for example
+// 1.5 => "1.5"
+// -1.5 => "-1.5"
+void HpLm75_RawTempToStr(int16_t rawTemp,char *strOut, int strLen);
 
 #endif // HPLM75_H

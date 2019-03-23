@@ -16,3 +16,14 @@ int HpLm75_RawTempToInt(int16_t rawTemp){
 		return rawTemp >> 8;
 	}
 }
+
+void HpLm75_RawTempToStr(int16_t rawTemp,char *strOut, int strLen){
+
+	rawTemp >>= 7; // now it is temperature * 2
+	if (rawTemp < 0){
+		// 0 from  "-0.5" can't have leading '-'
+		sprintf_s(strOut,strLen,"-%d.%d", -rawTemp/2, -5*(rawTemp%2));
+	} else {
+		sprintf_s(strOut,strLen,"%d.%d", rawTemp/2, 5*(rawTemp%2));
+	}
+}
