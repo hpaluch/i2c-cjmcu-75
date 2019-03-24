@@ -16,6 +16,9 @@ for generic HW/SW setup instructions. Here is project specific info only.
 
 # Wiring LC CH341A USB adapter with [CJMCU-75 board][Using I2C board CJMCU-75 with LM75A]
 
+
+![Wiring CH341A, CJMCU-75 and Logical Analyzer together](https://github.com/hpaluch/i2c-cjmcu-75/blob/master/ch341-i2c-lm75a/assets/wiring-cjmcu75-ch341a-la.jpg?raw=true)
+
 Here is table how to connect together:
 * [CH341A USB to UART/IIC/SPI/TTL/ISP adapter EPP/MEM Parallel converter][CH341A USB to UART/IIC/SPI/TTL/ISP adapter EPP/MEM Parallel converter]
 * [CJMCU-75 board][Using I2C board CJMCU-75 with LM75A]
