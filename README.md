@@ -6,18 +6,8 @@ with [I2C LM75A Digital Temperature Sensor][LM75A].
 Project status:
 
 * Now can read temperature
-  using: [LC CH341A USB Adapter][Connecting LC CH341A USB Adapter to I2C Digital Temperature sensor LM75A] - project in VS2010.
+  using: [LC CH341A USB Adapter][Connecting LC CH341A USB Adapter to I2C Digital Temperature sensor LM75A] - project in VS2010. See project's readme for more details.
 
-Example output:
-
-```
-CH341 library version: 33
-Opening device# 0
-CH341 driver  version: 34
-tempRaw is 6912 (0x1b00)
-Int Temp is 27 degrees of Celsius
-Temp is 27.0 degrees of Celsius
-```
 
 ![CJMCU-75 Top](https://github.com/hpaluch/i2c-cjmcu-75/blob/master/assets/cjmcu-75-top.jpg?raw=true) 
 
